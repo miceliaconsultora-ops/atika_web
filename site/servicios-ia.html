@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios IA — OCR y automatización de documentos | Atika Software</title>
+  <meta name="description" content="Servicios de OCR + Vision IA para automatización de documentos financieros: facturas, remitos, cheques y comprobantes AFIP. Integración directa con sistemas legacy VB y .NET." />
+  <meta name="keywords" content="OCR facturas Argentina, automatización documentos financieros, lectura automática AFIP, Vision IA documentos, integración legacy .NET VB" />
+  <link rel="canonical" href="https://atikasoft.com.ar/servicios-ia.html" />
+  <meta property="og:title" content="Servicios IA — Atika Software" />
+  <meta property="og:description" content="OCR + Vision IA para facturas, remitos, cheques y comprobantes. Integración directa con sistemas legacy." />
+  <meta property="og:url" content="https://atikasoft.com.ar/servicios-ia.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "OCR + Vision IA para Documentos Financieros",
+    "provider": { "@type": "Organization", "name": "Atika Software", "url": "https://atikasoft.com.ar" },
+    "description": "Lectura automática de facturas, remitos, cheques y comprobantes AFIP con integración a sistemas legacy.",
+    "areaServed": "AR"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563EB'/><text y='23' x='6' font-size='20' font-family='Arial Black' fill='white' font-weight='900'>A</text></svg>" />
+
+  <style>
+    /* Page-specific styles */
+    .feature-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-block:last-child { border-bottom: none; }
+    .feature-block.reverse .feature-text { order: 2; }
+    .feature-block.reverse .feature-visual { order: 1; }
+
+    .feature-text .section-label { margin-bottom: 12px; }
+    .feature-title {
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .feature-desc {
+      font-size: 16px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .feature-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+    .feature-list-item svg { flex-shrink: 0; margin-top: 2px; color: var(--blue); }
+
+    .feature-visual {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(37,99,235,0.2) 0%, transparent 70%);
+    }
+    .feature-visual-placeholder {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .feature-visual-icon {
+      width: 72px;
+      height: 72px;
+      background: rgba(37,99,235,0.2);
+      border: 1px solid rgba(37,99,235,0.3);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .feature-visual-label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.5;
+    }
+
+    /* Document type cards */
+    .doc-types {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .doc-type-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      text-align: center;
+      transition: all 0.25s var(--ease);
+    }
+    .doc-type-card:hover {
+      border-color: var(--blue);
+      background: white;
+      box-shadow: var(--shadow);
+      transform: translateY(-3px);
+    }
+    .doc-type-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--navy);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+    }
+    .doc-type-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .doc-type-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+
+    /* Tech stack */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .tech-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+    }
+    .tech-card-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 12px;
+      background: var(--off-white);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tech-card-name { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+    .tech-card-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+
+    @media (max-width: 768px) {
+      .feature-block { grid-template-columns: 1fr; gap: 40px; padding: 48px 0; }
+      .feature-block.reverse .feature-text { order: 0; }
+      .feature-block.reverse .feature-visual { order: 0; }
+      .doc-types { grid-template-columns: 1fr 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .doc-types { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo" aria-label="Atika Software — Inicio">
+          <div class="navbar-logo-mark" aria-hidden="true">A</div>
+          <span class="navbar-logo-text">Atika<span>Soft</span></span>
+        </a>
+        <ul class="navbar-nav" role="list">
+          <li><a href="servicios-ia.html" class="nav-link active">Servicios IA</a></li>
+          <li><a href="productos.html" class="nav-link">Productos</a></li>
+          <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li><a href="casos.html" class="nav-link">Casos</a></li>
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="contacto.html" class="btn btn-primary navbar-cta">Pedir Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-labelledby="page-heading">
+    <div class="container">
+      <div class="page-hero-inner">
+        <nav class="page-hero-breadcrumb" aria-label="Ruta de navegación">
+          <a href="index.html">Inicio</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Servicios IA</span>
+        </nav>
+        <div class="section-label light">Inteligencia Artificial</div>
+        <h1 id="page-heading">OCR + Vision IA<br/>para documentos financieros</h1>
+        <p>Automatizamos la lectura e interpretación de facturas, remitos, cheques y comprobantes. Los datos estructurados van directo a tu sistema — sin carga manual, sin errores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENT TYPES -->
+  <section style="padding: 64px 0; background: var(--white);" aria-labelledby="doctypes-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="section-label">Documentos soportados</div>
+        <h2 id="doctypes-heading" class="section-title gsap-fade-up">Leemos cualquier documento<br/>del ecosistema financiero argentino</h2>
+      </div>
+      <div class="doc-types" data-stagger-parent>
+        <div class="doc-type-card" data-stagger-child>
+          <div class="doc-type-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="doc-type-name">Facturas A/B</div>
+          <p class="doc-type-desc">CUIT, CAE, fecha, monto, IVA, conceptos — validación AFIP/ARCA incluida</p>
+        </div>
+        <div class="doc-type-card" data-stagger-child>
+          <div class="doc-type-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+          <div class="doc-type-name">Cheques</div>
+          <p class="doc-type-desc">Número, banco, monto, fecha, beneficiario, CUIT emisor</p>
+        </div>
+        <div class="doc-type-card" data-stagger-child>
+          <div class="doc-type-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2"><path d="M5 8h14M5 8a2 2 0 1 0 0-4h14a2 2 0 1 0 0 4M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8m-9 4h4"/></svg>
+          </div>
+          <div class="doc-type-name">Remitos</div>
+          <p class="doc-type-desc">Remitente, destinatario, items, cantidades, condición de entrega</p>
+        </div>
+        <div class="doc-type-card" data-stagger-child>
+          <div class="doc-type-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 12 18 15 15"/><line x1="12" y1="12" x2="12" y2="18"/></svg>
+          </div>
+          <div class="doc-type-name">Comprobantes</div>
+          <p class="doc-type-desc">Recibos, notas de crédito/débito, órdenes de compra, presupuestos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE BLOCKS -->
+  <section style="padding: 0 0 80px; background: var(--white);">
+    <div class="container">
+
+      <!-- Feature 1: OCR -->
+      <div class="feature-block gsap-fade-up">
+        <div class="feature-text">
+          <div class="section-label">Motor OCR + Vision IA</div>
+          <h2 class="feature-title">Precisión del 99%+<br/>en documentos reales</h2>
+          <p class="feature-desc">Nuestro motor no es un OCR genérico. Está entrenado específicamente con documentos financieros argentinos — conoce el formato AFIP, los campos obligatorios, las variantes de cada tipo de comprobante.</p>
+          <ul class="feature-list">
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Detecta y corrige orientación, iluminación y resolución automáticamente
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Acepta JPG, PNG, PDF, TIFF y fotos directas desde celular
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Validación en tiempo real contra AFIP/ARCA (CUIT activo, CAE válido)
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Procesamiento batch: carga masiva de documentos sin intervención manual
+            </li>
+          </ul>
+          <a href="contacto.html" class="btn btn-primary">Solicitar implementación <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="feature-visual">
+          <!-- 3D SCROLL ASSET HERE: animación de motor OCR procesando documento, ~560×420px -->
+          <div class="feature-visual-placeholder">
+            <div class="feature-visual-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="feature-visual-label">Motor OCR en acción<br/><span style="color:rgba(255,255,255,0.2); font-size:11px;">[ Asset de video/3D aquí ]</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Integration -->
+      <div class="feature-block reverse gsap-fade-up">
+        <div class="feature-text">
+          <div class="section-label">Integración Legacy</div>
+          <h2 class="feature-title">Conectamos la IA con<br/>el sistema que ya tenés</h2>
+          <p class="feature-desc">No pedimos que reemplaces nada. Nos conectamos a tu sistema VB, .NET o base de datos SQL Server existente y le agregamos inteligencia por encima — sin tocar lo que funciona.</p>
+          <ul class="feature-list">
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Compatible con Visual Basic 6, VB.NET, C# y sistemas propietarios
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Escritura directa en SQL Server, MySQL, Access y Oracle
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              API REST para integración con cualquier plataforma o ERP
+            </li>
+            <li class="feature-list-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 12 4 10"/><polyline points="4 22 9 12"/></svg>
+              Implementación en días — no en meses. Soporte local en castellano
+            </li>
+          </ul>
+          <a href="contacto.html" class="btn btn-outline">Hablar con un integrador <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="feature-visual">
+          <div class="feature-visual-placeholder">
+            <div class="feature-visual-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="feature-visual-label">Diagrama de integración<br/><span style="color:rgba(255,255,255,0.2); font-size:11px;">[ Asset de video/3D aquí ]</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section style="padding: var(--section-py) 0; background: var(--off-white);" aria-labelledby="tech-heading">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label">Tecnología</div>
+        <h2 id="tech-heading" class="section-title gsap-fade-up">Stack tecnológico</h2>
+        <p class="section-desc gsap-fade-up" style="margin: 0 auto;">Combinamos las mejores herramientas de IA con décadas de expertise en sistemas de gestión.</p>
+      </div>
+      <div class="tech-grid" data-stagger-parent>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="tech-card-name">Computer Vision</div>
+          <p class="tech-card-desc">Modelos de visión artificial entrenados en documentos financieros argentinos para máxima precisión.</p>
+        </div>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="tech-card-name">OCR Avanzado</div>
+          <p class="tech-card-desc">Reconocimiento óptico de caracteres de alta precisión con preprocesamiento de imagen automático.</p>
+        </div>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
+          <div class="tech-card-name">Integración de Datos</div>
+          <p class="tech-card-desc">Escritura directa en SQL Server, MySQL, Oracle y Access. API REST para integraciones personalizadas.</p>
+        </div>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="tech-card-name">Validación AFIP</div>
+          <p class="tech-card-desc">Consulta automática a los web services de AFIP/ARCA para verificar CAE, CUIT y datos fiscales.</p>
+        </div>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div class="tech-card-name">.NET / VB Legacy</div>
+          <p class="tech-card-desc">20+ años de expertise en Visual Basic, VB.NET y C#. Integramos con cualquier sistema existente.</p>
+        </div>
+        <div class="tech-card" data-stagger-child>
+          <div class="tech-card-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="tech-card-name">API REST</div>
+          <p class="tech-card-desc">Endpoints documentados para integración con cualquier ERP, CRM o plataforma web.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" aria-labelledby="svcta-heading">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label light gsap-fade-up">Demo gratuita</div>
+        <h2 id="svcta-heading" class="gsap-fade-up">Probalo con<br/>un documento <em>tuyo</em></h2>
+        <p class="gsap-fade-up">En 30 minutos procesamos una factura o remito real de tu empresa y te mostramos el resultado directo en pantalla.</p>
+        <div class="cta-actions gsap-fade-up">
+          <a href="contacto.html" class="btn btn-gold">Pedir Demo Gratuita <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/5491163001050?text=Hola!%20Quiero%20probar%20el%20OCR%20con%20un%20documento%20m%C3%ADo" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><div class="navbar-logo-mark" aria-hidden="true">A</div><span class="navbar-logo-text">Atika<span>Soft</span></span></div>
+          <p class="footer-brand-desc">Integramos sistemas legacy con inteligencia artificial. Más de 20 años transformando la gestión de empresas argentinas.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="servicios-ia.html" class="footer-link">OCR + Vision IA</a></li>
+            <li><a href="servicios-ia.html" class="footer-link">Integración Legacy</a></li>
+            <li><a href="servicios-ia.html" class="footer-link">Desarrollo .NET</a></li>
+            <li><a href="servicios-ia.html" class="footer-link">Apps Móviles</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Empresa</div>
+          <ul class="footer-links">
+            <li><a href="nosotros.html" class="footer-link">Nosotros</a></li>
+            <li><a href="productos.html" class="footer-link">Productos</a></li>
+            <li><a href="casos.html" class="footer-link">Casos de Éxito</a></li>
+            <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contacto</div>
+          <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atikasoft.com.ar</span></div>
+          <div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>15.6300.1050/51</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2004–<span data-year></span> Atika Software. Todos los derechos reservados.</span>
+        <div class="footer-bottom-links"><a href="#" class="footer-link">Privacidad</a><a href="#" class="footer-link">Términos</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="wa-float">
+    <div class="wa-tooltip">¿Necesitás una demo?</div>
+    <a href="https://wa.me/5491163001050?text=Hola!%20Quiero%20saber%20m%C3%A1s%20sobre%20la%20automatizaci%C3%B3n%20de%20documentos%20con%20IA" target="_blank" rel="noopener" class="wa-btn" aria-label="Abrir WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

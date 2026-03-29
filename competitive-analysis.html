@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Análisis Competitivo — Atika Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --paper: #f6f4f0;
+      --paper-card: #fffefa;
+      --ink: #1a1612;
+      --ink-muted: #6b6560;
+      --terracotta: #c45d3e;
+      --terracotta-light: #e8795e;
+      --navy: #0f1729;
+      --blue: #2563eb;
+      --gold: #f59e0b;
+      --green: #16a34a;
+      --border: #e5e0d8;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    /* ──────────────────────────────────────
+       COVER
+    ────────────────────────────────────── */
+    .cover {
+      background: var(--navy);
+      color: white;
+      border-radius: 16px;
+      padding: 64px 56px;
+      margin-bottom: 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 20%, rgba(37, 99, 235, 0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .cover-badge {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .cover h1 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cover h1 em {
+      font-style: italic;
+      color: #93c5fd;
+    }
+
+    .cover-meta {
+      margin-top: 32px;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 24px;
+    }
+
+    .cover-meta-item {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .cover-meta-item strong {
+      display: block;
+      font-size: 14px;
+      color: white;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    /* ──────────────────────────────────────
+       SECTION STRUCTURE
+    ────────────────────────────────────── */
+    .section {
+      margin-bottom: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .phase-num {
+      font-family: var(--serif);
+      font-size: 64px;
+      font-weight: 400;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-top: 4px;
+    }
+
+    /* ──────────────────────────────────────
+       CARDS
+    ────────────────────────────────────── */
+    .card {
+      background: var(--paper-card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--terracotta);
+      border-radius: 8px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    }
+
+    .card.blue { border-left-color: var(--blue); }
+    .card.gold { border-left-color: var(--gold); }
+    .card.green { border-left-color: var(--green); }
+    .card.navy { border-left-color: var(--navy); }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      gap: 16px;
+    }
+
+    .card-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    .card-score {
+      flex-shrink: 0;
+      background: var(--navy);
+      color: white;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--ink-muted);
+      margin-bottom: 12px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    /* ──────────────────────────────────────
+       EXECUTIVE SUMMARY
+    ────────────────────────────────────── */
+    .exec-summary {
+      background: var(--navy);
+      color: white;
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 20px;
+    }
+
+    .exec-summary h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 16px;
+      color: #93c5fd;
+    }
+
+    .exec-summary p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 12px;
+    }
+
+    .exec-summary p:last-child { margin-bottom: 0; }
+
+    /* ──────────────────────────────────────
+       COLOR SWATCHES
+    ────────────────────────────────────── */
+    .color-swatches {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 12px 0;
+    }
+
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    .swatch-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* ──────────────────────────────────────
+       COMPARISON TABLE
+    ────────────────────────────────────── */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      background: var(--paper-card);
+    }
+
+    thead th {
+      background: var(--navy);
+      color: white;
+      font-weight: 500;
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    thead th:first-child { border-radius: 0; }
+
+    tbody tr:nth-child(even) { background: #f8f7f4; }
+
+    tbody td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .score-high { color: var(--green); font-weight: 700; }
+    .score-mid { color: var(--gold); font-weight: 600; }
+    .score-low { color: var(--terracotta); font-weight: 600; }
+
+    .check { color: var(--green); }
+    .cross { color: var(--terracotta); }
+    .warn { color: var(--gold); }
+
+    /* ──────────────────────────────────────
+       STRENGTH / WEAKNESS LISTS
+    ────────────────────────────────────── */
+    .sw-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .sw-col h4 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .sw-col.strengths h4 { color: var(--green); }
+    .sw-col.weaknesses h4 { color: var(--terracotta); }
+
+    .sw-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sw-col ul li {
+      font-size: 13px;
+      color: var(--ink-muted);
+      padding: 4px 0;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .sw-col ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--ink-muted);
+      font-size: 11px;
+    }
+
+    /* ──────────────────────────────────────
+       PATTERN CARDS
+    ────────────────────────────────────── */
+    .pattern-card {
+      background: var(--paper-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
+    }
+
+    .pattern-number {
+      font-family: var(--serif);
+      font-size: 36px;
+      color: var(--terracotta);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pattern-title {
+      font-family: var(--serif);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .pattern-desc {
+      font-size: 14px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+    }
+
+    /* ──────────────────────────────────────
+       TAGS / PILLS
+    ────────────────────────────────────── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      color: var(--ink-muted);
+      background: var(--paper);
+    }
+
+    .tag.primary {
+      border-color: var(--terracotta);
+      color: var(--terracotta);
+      background: rgba(196, 93, 62, 0.06);
+    }
+
+    .tag.blue {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: rgba(37, 99, 235, 0.06);
+    }
+
+    /* ──────────────────────────────────────
+       DESIGN DIRECTION
+    ────────────────────────────────────── */
+    .palette-row {
+      display: flex;
+      gap: 0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+      height: 72px;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .palette-swatch span {
+      background: rgba(255,255,255,0.85);
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+    }
+
+    /* ──────────────────────────────────────
+       SEO TABLE
+    ────────────────────────────────────── */
+    .kw-priority-high { color: var(--terracotta); font-weight: 700; }
+    .kw-priority-med { color: var(--gold); font-weight: 600; }
+
+    /* ──────────────────────────────────────
+       DIVIDER / CONNECTOR
+    ────────────────────────────────────── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 48px 0;
+      color: var(--border);
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      border-top: 1px dashed var(--border);
+    }
+
+    .divider-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--terracotta);
+      border-radius: 50%;
+    }
+
+    /* ──────────────────────────────────────
+       PRINT
+    ────────────────────────────────────── */
+    @media print {
+      body::before { display: none; }
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .card, .exec-summary, .pattern-card { break-inside: avoid; }
+      .page { padding: 20px; }
+      .section { margin-bottom: 32px; }
+    }
+
+    /* ──────────────────────────────────────
+       RESPONSIVE
+    ────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .page { padding: 24px 20px; }
+      .cover { padding: 36px 28px; }
+      .sw-grid { grid-template-columns: 1fr; }
+      .cover-meta { flex-direction: column; gap: 16px; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════════════
+       COVER
+  ══════════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-badge">Análisis Competitivo · 2026</div>
+    <h1>El mercado del<br/><em>software empresarial<br/>con IA en Argentina</em></h1>
+    <p style="color:rgba(255,255,255,0.6); font-size:15px; margin-top:16px; max-width:520px; line-height:1.6;">
+      Investigación estratégica sobre competidores directos e indirectos en el segmento de software ERP, automatización de documentos e integración de sistemas legacy con inteligencia artificial.
+    </p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <strong>Preparado para</strong>
+        Atika Software
+      </div>
+      <div class="cover-meta-item">
+        <strong>Dominio</strong>
+        atikasoft.com.ar
+      </div>
+      <div class="cover-meta-item">
+        <strong>Fecha</strong>
+        Marzo 2026
+      </div>
+      <div class="cover-meta-item">
+        <strong>Competidores analizados</strong>
+        5 empresas
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       EXECUTIVE SUMMARY
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="exec-summary">
+      <h3>Resumen Ejecutivo</h3>
+      <p>El mercado argentino de software empresarial está dominado por players establecidos (Tango/Axoft, Bejerman/Thomson Reuters) que llevan décadas construyendo su base de clientes pero que <strong>no han incorporado capacidades reales de IA ni automatización de documentos</strong>. El único competidor con IA genuina (Finnegans con "Finni") la usa como asistente conversacional — no como motor de lectura y procesamiento de documentos financieros.</p>
+      <p>Esto crea una <strong>ventana de oportunidad clara y no disputada</strong>: ningún competidor relevante en el segmento PYME/mid-market argentino ofrece OCR + Vision AI para procesamiento inmediato de facturas, remitos, cheques y comprobantes directamente a sistemas legacy. Atika puede ser el primero en posicionarse como el puente entre sistemas legacy y la IA.</p>
+      <p>El nuevo sitio web debe comunicar este diferencial desde el primer scroll, combinando la confianza de 20+ años de experiencia en sistemas de gestión con el lenguaje y la estética de una empresa de tecnología de vanguardia.</p>
+    </div>
+
+    <div class="tags">
+      <span class="tag primary">Oportunidad no disputada</span>
+      <span class="tag primary">OCR para PYMEs Argentina</span>
+      <span class="tag blue">Legacy + IA</span>
+      <span class="tag blue">AFIP compliance</span>
+      <span class="tag">Mercado mid-market</span>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- ══════════════════════════════════════
+       COMPETITOR PROFILES
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="phase-num">01</div>
+      <div>
+        <h2 class="section-title">Perfiles de Competidores</h2>
+        <p class="section-subtitle">Top 5 empresas analizadas — mercado ERP/software empresarial Argentina</p>
+      </div>
+    </div>
+
+    <!-- Tango -->
+    <div class="card navy">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Tango Software (Axoft Argentina)</div>
+          <div style="font-size:12px; color:var(--ink-muted); margin-top:4px;">axoft.com · ERP para empresas medianas y grandes</div>
+        </div>
+        <div class="card-score">65 / 80</div>
+      </div>
+      <p><em>"Mucho más que un software, una comunidad"</em> — El ERP más establecido del mercado argentino. 35+ años, 60,000+ clientes, 200+ centros de servicio. Fuerte en AFIP compliance y en educación con Tango University.</p>
+      <div class="color-swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#003366;"></div><span>#003366</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#FF6600;"></div><span>#FF6600</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#FFFFFF; border:1px solid #ddd;"></div><span>#FFFFFF</span></div>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>60,000+ clientes activos, 35 años de mercado</li>
+            <li>200+ centros de servicio en Argentina</li>
+            <li>Tango University: 110,000 egresados</li>
+            <li>Clientes: Avon, KPMG, Roemmers</li>
+            <li>Fuerte compliance AFIP/ARCA</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Debilidades</h4>
+          <ul>
+            <li>Cero capacidades de IA o automatización real</li>
+            <li>Diseño web desactualizado</li>
+            <li>Sin OCR ni procesamiento de documentos</li>
+            <li>CTA débil: solo "Conocé más" en homepage</li>
+            <li>Imagen corporativa/burocrática</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags" style="margin-top:16px;">
+        <span class="tag">60k+ clientes</span>
+        <span class="tag">AFIP certificado</span>
+        <span class="tag">Sin IA</span>
+        <span class="tag">Mercado masivo</span>
+      </div>
+    </div>
+
+    <!-- Finnegans -->
+    <div class="card blue">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Finnegans</div>
+          <div style="font-size:12px; color:var(--ink-muted); margin-top:4px;">finneg.com · ERP cloud + IA para LATAM</div>
+        </div>
+        <div class="card-score">66 / 80</div>
+      </div>
+      <p><em>"Te invitamos al futuro que imaginamos"</em> — El competidor más moderno del ranking local. Cloud-native, no-code/low-code, con Finni (asistente IA) y presencia en 15+ países. Mejor diseño del mercado argentino.</p>
+      <div class="color-swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#1A73E8;"></div><span>#1A73E8</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#7C3AED;"></div><span>#7C3AED</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#FFFFFF; border:1px solid #ddd;"></div><span>#FFFFFF</span></div>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Finni AI — único ERP argentino con IA nombrada</li>
+            <li>No-code/low-code/full-code flexibility</li>
+            <li>Diseño moderno con Lottie animations</li>
+            <li>ISO 27001/9001 certificado</li>
+            <li>Clientes: Syngenta, Arcor, Molinos</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Debilidades</h4>
+          <ul>
+            <li>IA = chatbot conversacional, no OCR/Vision</li>
+            <li>Posicionado para enterprise, no SME local</li>
+            <li>Propuesta vaga: "futuro que imaginamos"</li>
+            <li>Sin expertise en legacy VB ni modernización</li>
+            <li>Precio no transparente</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags" style="margin-top:16px;">
+        <span class="tag primary">IA básica presente</span>
+        <span class="tag">Cloud native</span>
+        <span class="tag">Mejor diseño local</span>
+        <span class="tag">Sin OCR</span>
+      </div>
+    </div>
+
+    <!-- Thomson Reuters / Bejerman -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Thomson Reuters · Bejerman</div>
+          <div style="font-size:12px; color:var(--ink-muted); margin-top:4px;">thomsonreuters.com.ar · Software contable y ERP</div>
+        </div>
+        <div class="card-score">57 / 80</div>
+      </div>
+      <p><em>"Soluciones de gestión para pymes, contadores y estudios contables"</em> — Marca global con portfolio local. Onvio (cloud contable) + Bejerman ERP. Fuerte en el segmento de estudios contables. Badge AFIP visible.</p>
+      <div class="color-swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#FF7F00;"></div><span>#FF7F00</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#1A1A2E;"></div><span>#1A1A2E</span></div>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Marca global Thomson Reuters = credibilidad</li>
+            <li>Badge AFIP prominente</li>
+            <li>Cubre contadores + empresas medianas</li>
+            <li>WhatsApp support (comportamiento argentino)</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Debilidades</h4>
+          <ul>
+            <li>Confusión de marca: TR + Bejerman</li>
+            <li>Sin IA, sin automatización de documentos</li>
+            <li>Diseño corporativo global, no local</li>
+            <li>CTAs extremadamente débiles ("Ver más")</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags" style="margin-top:16px;">
+        <span class="tag">AFIP badge</span>
+        <span class="tag">WhatsApp CTA</span>
+        <span class="tag">Sin IA</span>
+        <span class="tag">Contadores</span>
+      </div>
+    </div>
+
+    <!-- Globant -->
+    <div class="card gold">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Globant</div>
+          <div style="font-size:12px; color:var(--ink-muted); margin-top:4px;">globant.com · Enterprise AI & digital transformation</div>
+        </div>
+        <div class="card-score">76 / 80</div>
+      </div>
+      <p><em>"We help organizations lead change through digital and cognitive transformation"</em> — Referente global argentino. Mejor posicionamiento de IA en la región, pero enfocado en enterprise multinacional. No es competidor directo de Atika, pero define el estándar de lenguaje y diseño que el mercado asocia con "IA seria."</p>
+      <div class="color-swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#47DE75;"></div><span>#47DE75</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#44C492;"></div><span>#44C492</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#0FA5E4;"></div><span>#0FA5E4</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#0F1729;"></div><span>#0F1729</span></div>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Mejor posicionamiento IA de la región</li>
+            <li>"Enterprise AI" — lenguaje claro y específico</li>
+            <li>Diseño dark theme + gradientes premium</li>
+            <li>30,000 empleados, 35 países</li>
+            <li>Clientes: FIFA, L'Oréal, Santander, HSBC</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Debilidades (vs. Atika)</h4>
+          <ul>
+            <li>Solo enterprise multinacional — no PYME</li>
+            <li>Sin expertise en legacy VB argentino</li>
+            <li>Sin compliance AFIP/local</li>
+            <li>Inaccessible para el mercado de Atika</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags" style="margin-top:16px;">
+        <span class="tag blue">Referente de diseño</span>
+        <span class="tag blue">Lenguaje IA a adoptar</span>
+        <span class="tag">No competidor directo</span>
+      </div>
+    </div>
+
+    <!-- Openix -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Openix</div>
+          <div style="font-size:12px; color:var(--ink-muted); margin-top:4px;">openix.tech · Digital transformation boutique</div>
+        </div>
+        <div class="card-score">45 / 80</div>
+      </div>
+      <p><em>"Transformamos negocios con tecnología"</em> — Boutique tech con estética dark moderna. Orange + indigo palette, Inter font. Posicionamiento visual sólido pero sin contenido sustancial visible ni social proof verificable.</p>
+      <div class="color-swatches">
+        <div class="swatch"><div class="swatch-dot" style="background:#FF6B35;"></div><span>#FF6B35</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#6366F1;"></div><span>#6366F1</span></div>
+        <div class="swatch"><div class="swatch-dot" style="background:#0D1117;"></div><span>#0D1117</span></div>
+      </div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Fortalezas</h4>
+          <ul>
+            <li>Dark theme moderno — diferenciador visual</li>
+            <li>Color palette energética (orange + indigo)</li>
+            <li>Inter font — profesional y legible</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Debilidades</h4>
+          <ul>
+            <li>Sin contenido sustancial visible</li>
+            <li>Sin social proof ni casos de éxito</li>
+            <li>Sin expertise ERP o legacy</li>
+            <li>Empresa pequeña sin presencia consolidada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- ══════════════════════════════════════
+       COMPARISON TABLE
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="phase-num">02</div>
+      <div>
+        <h2 class="section-title">Tabla Comparativa</h2>
+        <p class="section-subtitle">8 criterios · 5 competidores · benchmark vs. Atika actual</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Criterio</th>
+            <th>Tango</th>
+            <th>Finnegans</th>
+            <th>TR/Bejerman</th>
+            <th>Globant</th>
+            <th>Openix</th>
+            <th>Atika (hoy)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Visibilidad en buscadores</td>
+            <td class="score-high">9</td>
+            <td class="score-high">8</td>
+            <td class="score-high">8</td>
+            <td class="score-high">10</td>
+            <td class="score-low">5</td>
+            <td class="score-low">3</td>
+          </tr>
+          <tr>
+            <td>Calidad de reseñas</td>
+            <td class="score-high">8</td>
+            <td class="score-mid">7</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">9</td>
+            <td class="score-low">4</td>
+            <td class="score-low">2</td>
+          </tr>
+          <tr>
+            <td>Diseño visual moderno</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">9</td>
+            <td class="score-mid">6</td>
+            <td class="score-high">10</td>
+            <td class="score-mid">7</td>
+            <td class="score-low">3</td>
+          </tr>
+          <tr>
+            <td>Mobile responsivo</td>
+            <td class="score-high">8</td>
+            <td class="score-high">9</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">10</td>
+            <td class="score-mid">7</td>
+            <td class="score-mid">5</td>
+          </tr>
+          <tr>
+            <td>Profundidad de contenido</td>
+            <td class="score-high">9</td>
+            <td class="score-high">8</td>
+            <td class="score-high">8</td>
+            <td class="score-high">10</td>
+            <td class="score-low">5</td>
+            <td class="score-low">4</td>
+          </tr>
+          <tr>
+            <td>Social proof visible</td>
+            <td class="score-high">9</td>
+            <td class="score-high">8</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">10</td>
+            <td class="score-low">4</td>
+            <td class="score-low">3</td>
+          </tr>
+          <tr>
+            <td>Estrategia de CTA</td>
+            <td class="score-high">8</td>
+            <td class="score-high">9</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">9</td>
+            <td class="score-mid">6</td>
+            <td class="score-low">2</td>
+          </tr>
+          <tr>
+            <td>Velocidad / performance</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">8</td>
+            <td class="score-mid">7</td>
+            <td class="score-high">8</td>
+            <td class="score-mid">7</td>
+            <td class="score-low">5</td>
+          </tr>
+          <tr style="background: var(--navy); color: white;">
+            <td style="font-weight:700; color:white;">TOTAL</td>
+            <td style="color:#93c5fd; font-weight:700;">65</td>
+            <td style="color:#93c5fd; font-weight:700;">66</td>
+            <td style="color:#fbbf24; font-weight:700;">57</td>
+            <td style="color:#4ade80; font-weight:700;">76</td>
+            <td style="color:#f87171; font-weight:700;">45</td>
+            <td style="color:#f87171; font-weight:700;">27</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="font-size:12px; color:var(--ink-muted); margin-top:12px;">* Atika actual se evalúa antes del nuevo sitio. El objetivo del nuevo sitio es alcanzar 65+ en todos los criterios.</p>
+  </div>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- ══════════════════════════════════════
+       SEO LANDSCAPE
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="phase-num">03</div>
+      <div>
+        <h2 class="section-title">Landscape de SEO</h2>
+        <p class="section-subtitle">Keywords de alto valor con baja competencia — oportunidad inmediata</p>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Keyword objetivo</th>
+            <th>Volumen</th>
+            <th>Competencia</th>
+            <th>Prioridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OCR facturas automatización Argentina</td>
+            <td>Medio</td>
+            <td>Muy Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>lectura automática comprobantes AFIP IA</td>
+            <td>Medio</td>
+            <td>Muy Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>automatización documentos financieros Argentina</td>
+            <td>Bajo</td>
+            <td>Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>integración sistemas legacy Argentina</td>
+            <td>Medio</td>
+            <td>Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>digitalización facturas remitos cheques</td>
+            <td>Bajo</td>
+            <td>Muy Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>modernización sistemas VB .NET Argentina</td>
+            <td>Bajo</td>
+            <td>Muy Baja</td>
+            <td class="kw-priority-high">PRIMARIA</td>
+          </tr>
+          <tr>
+            <td>software ERP PYME Argentina</td>
+            <td>Alto</td>
+            <td>Alta</td>
+            <td class="kw-priority-med">SECUNDARIA</td>
+          </tr>
+          <tr>
+            <td>software gestión PYME Argentina</td>
+            <td>Alto</td>
+            <td>Alta</td>
+            <td class="kw-priority-med">SECUNDARIA</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card blue" style="margin-top:20px;">
+      <p style="font-size:14px; color:var(--ink); font-weight:500; margin-bottom:8px;">Oportunidad de "océano azul" en SEO</p>
+      <p>Ningún competidor argentino relevante rankea para términos relacionados con "OCR + documentos financieros + Argentina" o "automatización lectura facturas IA Argentina". Con una estrategia de contenido básica y on-page SEO correcto, Atika puede dominar estos términos en 3–6 meses.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- ══════════════════════════════════════
+       PATTERNS OF TOP 10%
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="phase-num">04</div>
+      <div>
+        <h2 class="section-title">Los 5 patrones del Top 10%</h2>
+        <p class="section-subtitle">Lo que separa los sitios elite de los promedio en este mercado</p>
+      </div>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-number">01</div>
+      <div class="pattern-title">Lenguaje de resultados específicos, no de características</div>
+      <p class="pattern-desc">Los sitios ganadores dicen: <em>"Procesá 500 facturas por hora sin intervención humana"</em> — no <em>"ofrecemos integración de sistemas"</em>. Cada headline de los top performers comunica un resultado de negocio concreto: tiempo ahorrado, errores eliminados, dinero recuperado.</p>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-number">02</div>
+      <div class="pattern-title">La IA está al frente, aunque sea básica</div>
+      <p class="pattern-desc">Finnegans usa "Finni AI" en su hero con Lottie animations. Globant abre con "Enterprise AI". La IA de Atika (OCR + Vision real) es genuinamente más sofisticada que la de estos competidores — pero está completamente ausente del sitio actual. El nuevo sitio debe gritar IA desde el primer scroll.</p>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-number">03</div>
+      <div class="pattern-title">Trust Stack: certificación + logos de clientes + números duros</div>
+      <p class="pattern-desc">Los top sites apilan confianza en capas: badge AFIP/ARCA → logos de clientes → números ("20 años", "200+ empresas", "99.9% uptime"). Atika tiene 22 logos de clientes pero no los acompaña con números ni con certificaciones visibles. El nuevo sitio necesita el stack completo.</p>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-number">04</div>
+      <div class="pattern-title">WhatsApp como CTA primario (mercado argentino)</div>
+      <p class="pattern-desc">En el mercado B2B argentino, WhatsApp es el canal de contacto esperado. Thomson Reuters, Tango y los mejores players locales tienen el botón de WhatsApp flotante o destacado. Es un trust signal cultural: dice "somos accesibles, somos locales." Sin este elemento el sitio se siente frío.</p>
+    </div>
+
+    <div class="pattern-card">
+      <div class="pattern-number">05</div>
+      <div class="pattern-title">Demo / prueba gratuita o CTA de valor inmediato</div>
+      <p class="pattern-desc">Finnegans: "Quiero usar Finnegans." Tango: acceso directo al producto. Los mejores no solo dicen "contactanos" — eliminan la fricción al primer valor. Para Atika: una demo del OCR procesando una factura real puede ser el CTA más poderoso del mercado. Mostrar, no contar.</p>
+    </div>
+
+    <div class="tags">
+      <span class="tag primary">Resultados específicos</span>
+      <span class="tag primary">IA visible</span>
+      <span class="tag primary">Trust stack</span>
+      <span class="tag primary">WhatsApp</span>
+      <span class="tag primary">Demo de valor</span>
+    </div>
+  </div>
+
+  <div class="section-divider"><div class="divider-dot"></div></div>
+
+  <!-- ══════════════════════════════════════
+       DESIGN DIRECTION
+  ══════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="phase-num">05</div>
+      <div>
+        <h2 class="section-title">Dirección de Diseño Recomendada</h2>
+        <p class="section-subtitle">Fundamentada en datos del análisis competitivo</p>
+      </div>
+    </div>
+
+    <div class="card green">
+      <div class="card-title" style="margin-bottom:16px;">Paleta de Colores Recomendada</div>
+      <div class="palette-row">
+        <div class="palette-swatch" style="background:#0F1729;"><span>#0F1729</span></div>
+        <div class="palette-swatch" style="background:#1E3A8A;"><span>#1E3A8A</span></div>
+        <div class="palette-swatch" style="background:#2563EB;"><span>#2563EB</span></div>
+        <div class="palette-swatch" style="background:#F59E0B;"><span>#F59E0B</span></div>
+        <div class="palette-swatch" style="background:#F8F9FA; color:#333;"><span>#F8F9FA</span></div>
+      </div>
+      <p style="font-size:13px;"><strong>Justificación:</strong> Navy profundo (confianza, legacy expertise) + Electric blue (IA, modernidad) + Gold accent (sector financiero, premium) + Off-white (legibilidad). Esta paleta bebe de Globant (el referente de IA en la región) pero la adapta para el mercado local argentino con más calidez. Se diferencia del azul corporativo genérico de Tango y TR con el gold como acento.</p>
+    </div>
+
+    <div class="card blue">
+      <div class="card-title" style="margin-bottom:12px;">Tipografía</div>
+      <p><strong>Headings:</strong> <span style="font-family:Georgia,serif; font-size:18px;">Plus Jakarta Sans Bold</span> — moderno, tech-forward, excelente legibilidad en pantallas</p>
+      <p style="margin-top:8px;"><strong>Body:</strong> Inter 400/500 — el estándar de la industria tech, máxima legibilidad, gratis (Google Fonts)</p>
+      <p style="margin-top:8px; font-size:13px; color:var(--ink-muted);">Evitar: Times New Roman (legado), Roboto (demasiado genérico), fuentes display decorativas.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title" style="margin-bottom:12px;">Elementos de Diseño Recomendados</div>
+      <div class="sw-grid">
+        <div class="sw-col strengths">
+          <h4>Incluir</h4>
+          <ul>
+            <li>Hero oscuro con animación de documento procesándose</li>
+            <li>Sección "Antes / Después" de automatización</li>
+            <li>Contador animado (docs/hora, empresas, años)</li>
+            <li>Badge AFIP prominente</li>
+            <li>WhatsApp floating button (bottom right)</li>
+            <li>Video demo del OCR en acción</li>
+            <li>Client logo carousel con nombres</li>
+            <li>Micro-interacciones en cards de productos</li>
+          </ul>
+        </div>
+        <div class="sw-col weaknesses">
+          <h4>Evitar</h4>
+          <ul>
+            <li>Stock photos genéricas de oficina</li>
+            <li>Tablas de precios con asteriscos</li>
+            <li>CTAs de "Contactenos" como única opción</li>
+            <li>Lorem ipsum o copy placeholder</li>
+            <li>Sliders automáticos de hero</li>
+            <li>Diseño Bootstrap template genérico</li>
+            <li>Menú con más de 6 items</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tags">
+      <span class="tag blue">Dark hero</span>
+      <span class="tag blue">Plus Jakarta Sans</span>
+      <span class="tag blue">Gold accent</span>
+      <span class="tag primary">GSAP animations</span>
+      <span class="tag primary">WhatsApp CTA</span>
+      <span class="tag">Mobile-first</span>
+      <span class="tag">Lighthouse 90+</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <div style="border-top: 1px solid var(--border); padding-top: 32px; margin-top: 32px; text-align:center;">
+    <p style="font-family:var(--serif); font-size:18px; color:var(--ink-muted); font-style:italic; margin-bottom:12px;">"La mejor oportunidad está donde los grandes no miran."</p>
+    <p style="font-size:12px; color:var(--ink-muted);">Preparado para Atika Software · atikasoft.com.ar · Marzo 2026 · Confidencial</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Productos — Software de gestión empresarial | Atika Software</title>
+  <meta name="description" content="14 soluciones de software para empresas argentinas: ERP, CRM, MRP, BI, facturación AFIP, control de acceso y más. Más de 20 años de desarrollo." />
+  <meta name="keywords" content="COMAR ERP Argentina, software gestión PYME, facturación AFIP, MRP manufactura, OLAP business intelligence Argentina" />
+  <link rel="canonical" href="https://atikasoft.com.ar/productos.html" />
+  <meta property="og:title" content="Productos — Atika Software" />
+  <meta property="og:description" content="14 soluciones de software para gestión empresarial. ERP, CRM, BI, facturación AFIP y más." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563EB'/><text y='23' x='6' font-size='20' font-family='Arial Black' fill='white' font-weight='900'>A</text></svg>" />
+
+  <style>
+    .products-full-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-full-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: all 0.25s var(--ease);
+    }
+    .product-full-card:hover {
+      border-color: var(--blue);
+      box-shadow: var(--shadow);
+      transform: translateY(-4px);
+    }
+    .product-full-card.new-badge::after {
+      content: 'IA';
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 100px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .product-header { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
+    .product-icon-lg {
+      width: 52px; height: 52px;
+      background: var(--navy);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .product-icon-lg svg { color: var(--blue-light); }
+    .product-name-lg { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
+    .product-category-lg { font-size: 11px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .product-desc-lg { font-size: 14px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 16px; }
+    .product-features { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .product-features li { font-size: 13px; color: var(--ink-mid); display: flex; gap: 8px; align-items: flex-start; }
+    .product-features li::before { content: '→'; color: var(--blue); flex-shrink: 0; }
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
+    .filter-btn {
+      font-size: 13px; font-weight: 500;
+      padding: 8px 18px; border-radius: 100px;
+      border: 1px solid var(--border); color: var(--ink-muted);
+      background: white; cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+    @media (max-width: 768px) { .products-full-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .products-full-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Navegación principal">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo"><div class="navbar-logo-mark" aria-hidden="true">A</div><span class="navbar-logo-text">Atika<span>Soft</span></span></a>
+        <ul class="navbar-nav" role="list">
+          <li><a href="servicios-ia.html" class="nav-link">Servicios IA</a></li>
+          <li><a href="productos.html" class="nav-link active">Productos</a></li>
+          <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+          <li><a href="casos.html" class="nav-link">Casos</a></li>
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="contacto.html" class="btn btn-primary navbar-cta">Pedir Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <nav class="page-hero-breadcrumb"><a href="index.html">Inicio</a><span>›</span><span aria-current="page">Productos</span></nav>
+        <div class="section-label light">Catálogo completo</div>
+        <h1 id="products-page-heading">14 soluciones de software<br/>probadas por 20+ años</h1>
+        <p>Desde ERP y CRM hasta control de acceso y gestión de turnos. Cada producto diseñado para el mercado argentino, compatible con AFIP y adaptable a tu operación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: var(--section-py) 0; background: var(--off-white);" aria-labelledby="products-page-heading">
+    <div class="container">
+
+      <div class="filter-bar" role="group" aria-label="Filtrar por categoría">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="erp">ERP / Gestión</button>
+        <button class="filter-btn" data-filter="bi">Analytics / BI</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="docs">Documentos</button>
+        <button class="filter-btn" data-filter="other">Otros</button>
+      </div>
+
+      <div class="products-full-grid" data-stagger-parent>
+
+        <div class="product-full-card" data-stagger-child data-category="erp">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div><div class="product-name-lg">COMAR ERP/CRM</div><div class="product-category-lg">Gestión empresarial</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema integral de gestión comercial, administración y CRM para empresas medianas. Módulos de compras, ventas, stock, finanzas y atención al cliente.</p>
+          <ul class="product-features">
+            <li>Gestión de compras, ventas y stock</li>
+            <li>Módulo CRM para seguimiento de clientes</li>
+            <li>Facturación electrónica AFIP</li>
+            <li>Reportes y dashboards ejecutivos</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="erp">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            <div><div class="product-name-lg">GPL MRP</div><div class="product-category-lg">Manufactura</div></div>
+          </div>
+          <p class="product-desc-lg">Planificación de requerimientos de materiales para la industria manufacturera. Control de producción, órdenes de fabricación y gestión de insumos.</p>
+          <ul class="product-features">
+            <li>Órdenes de fabricación y producción</li>
+            <li>Control de insumos y materias primas</li>
+            <li>Planificación de capacidad productiva</li>
+            <li>Integración con COMAR ERP</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div><div class="product-name-lg">SIGA GIUDIT</div><div class="product-category-lg">Legal / Judicial</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema de gestión para estudios jurídicos y organismos judiciales. Expedientes, audiencias, seguimiento de causas y notificaciones.</p>
+          <ul class="product-features">
+            <li>Gestión de expedientes y causas</li>
+            <li>Agenda de audiencias y vencimientos</li>
+            <li>Notificaciones automáticas</li>
+            <li>Reportes estadísticos judiciales</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div><div class="product-name-lg">MINT</div><div class="product-category-lg">Mensajería</div></div>
+          </div>
+          <p class="product-desc-lg">Plataforma de mensajería interna y comunicaciones corporativas. Integración con sistemas de gestión existentes.</p>
+          <ul class="product-features">
+            <li>Mensajería interna corporativa</li>
+            <li>Notificaciones de sistema</li>
+            <li>Integración con ERP y CRM</li>
+            <li>Historial de comunicaciones</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="bi">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div><div class="product-name-lg">AIEL OLAP</div><div class="product-category-lg">Business Intelligence</div></div>
+          </div>
+          <p class="product-desc-lg">Análisis multidimensional de datos para reportes ejecutivos y toma de decisiones. Cubos OLAP, dashboards interactivos y KPIs configurables.</p>
+          <ul class="product-features">
+            <li>Cubos OLAP multidimensionales</li>
+            <li>Dashboards ejecutivos interactivos</li>
+            <li>KPIs y métricas configurables</li>
+            <li>Exportación a Excel y PDF</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="erp">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div><div class="product-name-lg">COLOMBA</div><div class="product-category-lg">Recursos humanos</div></div>
+          </div>
+          <p class="product-desc-lg">Gestión de recursos humanos y liquidación de sueldos para empresas argentinas. Compatible con normativas laborales vigentes.</p>
+          <ul class="product-features">
+            <li>Liquidación de sueldos y haberes</li>
+            <li>Control de asistencia y horarios</li>
+            <li>Legajos digitales del personal</li>
+            <li>Informes AFIP y ANSES</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="mobile">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div><div class="product-name-lg">Android Colector</div><div class="product-category-lg">Mobile / campo</div></div>
+          </div>
+          <p class="product-desc-lg">App Android para recolección de datos en campo. Lectora de códigos de barras, sincronización offline con el ERP central.</p>
+          <ul class="product-features">
+            <li>Lector de códigos de barras y QR</li>
+            <li>Funcionamiento offline con sync posterior</li>
+            <li>Integración con COMAR ERP</li>
+            <li>Relevamientos de inventario móvil</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div><div class="product-name-lg">DICOMS</div><div class="product-category-lg">Imágenes médicas</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema de gestión de imágenes médicas en formato DICOM para clínicas, sanatorios y centros de diagnóstico.</p>
+          <ul class="product-features">
+            <li>Visualizador de imágenes DICOM</li>
+            <li>Gestión de estudios y pacientes</li>
+            <li>Integración con equipos de diagnóstico</li>
+            <li>Archivo digital de estudios</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div><div class="product-name-lg">Encuestas</div><div class="product-category-lg">Feedback / satisfacción</div></div>
+          </div>
+          <p class="product-desc-lg">Plataforma de encuestas de satisfacción y relevamiento de datos para clientes y empleados. Reportes automáticos.</p>
+          <ul class="product-features">
+            <li>Constructor de encuestas drag & drop</li>
+            <li>Distribución por email o QR</li>
+            <li>Reportes y análisis de resultados</li>
+            <li>Integración con CRM</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="docs">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div><div class="product-name-lg product-full-card new-badge" style="border:none; padding:0; background:none; box-shadow:none; transform:none;">Facturación MiPyme</div><div class="product-category-lg">Facturación AFIP</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema de facturación electrónica AFIP/ARCA para pequeñas y medianas empresas. Ahora con módulo OCR para lectura de comprobantes recibidos.</p>
+          <ul class="product-features">
+            <li>Facturación A, B y C electrónica</li>
+            <li>Integración directa con AFIP/ARCA</li>
+            <li>Módulo OCR para recepción de facturas</li>
+            <li>Gestión de proveedores y clientes</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+            <div><div class="product-name-lg">GAP Control de Acceso</div><div class="product-category-lg">Seguridad</div></div>
+          </div>
+          <p class="product-desc-lg">Control de acceso físico por RFID, huella dactilar o PIN para instalaciones industriales, comerciales y corporativas.</p>
+          <ul class="product-features">
+            <li>Acceso por tarjeta RFID, huella o PIN</li>
+            <li>Registro de ingresos y egresos</li>
+            <li>Gestión de permisos por zonas</li>
+            <li>Integración con RRHH y turnos</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div><div class="product-name-lg">GCE Turnero</div><div class="product-category-lg">Gestión de colas</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema de turnos y gestión de colas para organismos públicos, clínicas, bancos y comercios de alta afluencia.</p>
+          <ul class="product-features">
+            <li>Turnos online y presenciales</li>
+            <li>Display de llamado por pantalla</li>
+            <li>Estadísticas de tiempos de espera</li>
+            <li>Integración con sistemas de atención</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div><div class="product-name-lg">Trazabilidad</div><div class="product-category-lg">Supply chain</div></div>
+          </div>
+          <p class="product-desc-lg">Sistema de trazabilidad de productos para industrias reguladas. Seguimiento de lote, vencimientos y cadena de custodia.</p>
+          <ul class="product-features">
+            <li>Trazabilidad por lote y serie</li>
+            <li>Gestión de vencimientos</li>
+            <li>Cadena de custodia auditable</li>
+            <li>Compliance con normativas sectoriales</li>
+          </ul>
+        </div>
+
+        <div class="product-full-card" data-stagger-child data-category="other">
+          <div class="product-header">
+            <div class="product-icon-lg"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div><div class="product-name-lg">Diseño Gráfico</div><div class="product-category-lg">Servicios</div></div>
+          </div>
+          <p class="product-desc-lg">Servicios de diseño gráfico corporativo: identidad visual, material promocional, UI/UX para software y aplicaciones web.</p>
+          <ul class="product-features">
+            <li>Identidad visual y branding</li>
+            <li>UI/UX para software</li>
+            <li>Material promocional digital</li>
+            <li>Diseño de interfaces web y mobile</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label light gsap-fade-up">¿No encontrás lo que buscás?</div>
+        <h2 class="gsap-fade-up">Desarrollamos a medida<br/>lo que tu empresa <em>necesita</em></h2>
+        <p class="gsap-fade-up">Contanos tu necesidad y te proponemos la solución más eficiente — sea adaptar un producto existente o desarrollar uno nuevo.</p>
+        <div class="cta-actions gsap-fade-up">
+          <a href="contacto.html" class="btn btn-gold">Consultar sobre un producto <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/5491163001050?text=Hola!%20Quiero%20consultar%20sobre%20un%20producto%20de%20Atika" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><div class="navbar-logo-mark">A</div><span class="navbar-logo-text">Atika<span>Soft</span></span></div>
+          <p class="footer-brand-desc">Integramos sistemas legacy con inteligencia artificial. Más de 20 años transformando la gestión de empresas argentinas.</p>
+        </div>
+        <div><div class="footer-col-title">Servicios</div><ul class="footer-links"><li><a href="servicios-ia.html" class="footer-link">OCR + Vision IA</a></li><li><a href="servicios-ia.html" class="footer-link">Integración Legacy</a></li><li><a href="servicios-ia.html" class="footer-link">Desarrollo .NET</a></li></ul></div>
+        <div><div class="footer-col-title">Empresa</div><ul class="footer-links"><li><a href="nosotros.html" class="footer-link">Nosotros</a></li><li><a href="casos.html" class="footer-link">Casos de Éxito</a></li><li><a href="contacto.html" class="footer-link">Contacto</a></li></ul></div>
+        <div><div class="footer-col-title">Contacto</div><div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atikasoft.com.ar</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2004–<span data-year></span> Atika Software.</span><div class="footer-bottom-links"><a href="#" class="footer-link">Privacidad</a></div></div>
+    </div>
+  </footer>
+
+  <div class="wa-float">
+    <div class="wa-tooltip">Consultar sobre productos</div>
+    <a href="https://wa.me/5491163001050?text=Hola!%20Quiero%20consultar%20sobre%20los%20productos%20de%20Atika" target="_blank" rel="noopener" class="wa-btn" aria-label="WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Product filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('[data-category]').forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.style.display = show ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

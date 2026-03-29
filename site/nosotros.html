@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros — 20 años integrando sistemas en Argentina | Atika Software</title>
+  <meta name="description" content="Atika Software: empresa de software argentina fundada en 2004. Especialistas en integración de sistemas legacy con inteligencia artificial y automatización de documentos financieros." />
+  <link rel="canonical" href="https://atikasoft.com.ar/nosotros.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%232563EB'/><text y='23' x='6' font-size='20' font-family='Arial Black' fill='white' font-weight='900'>A</text></svg>" />
+
+  <style>
+    .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .value-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; }
+    .value-icon { width: 48px; height: 48px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .value-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .value-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--blue), var(--gold)); }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot { position: absolute; left: -28px; top: 4px; width: 16px; height: 16px; background: var(--blue); border-radius: 50%; border: 3px solid var(--off-white); }
+    .timeline-year { font-size: 12px; font-weight: 700; color: var(--blue); letter-spacing: 0.06em; margin-bottom: 4px; }
+    .timeline-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .timeline-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.55; }
+
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-split-visual { background: var(--navy); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .about-split-visual::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(37,99,235,0.2) 0%, transparent 70%); }
+
+    .team-placeholder { text-align: center; position: relative; z-index: 1; }
+    .team-avatars { display: flex; justify-content: center; gap: -8px; margin-bottom: 12px; }
+    .team-avatar { width: 56px; height: 56px; background: var(--blue); border-radius: 50%; border: 3px solid var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 20px; color: white; margin-left: -12px; }
+    .team-avatar:first-child { margin-left: 0; }
+    .team-avatar:nth-child(2) { background: var(--navy-mid); }
+    .team-avatar:nth-child(3) { background: #1D4ED8; }
+
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .about-split { grid-template-columns: 1fr; gap: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="navbar-logo"><div class="navbar-logo-mark">A</div><span class="navbar-logo-text">Atika<span>Soft</span></span></a>
+        <ul class="navbar-nav">
+          <li><a href="servicios-ia.html" class="nav-link">Servicios IA</a></li>
+          <li><a href="productos.html" class="nav-link">Productos</a></li>
+          <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+          <li><a href="casos.html" class="nav-link">Casos</a></li>
+          <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+        </ul>
+        <a href="contacto.html" class="btn btn-primary navbar-cta">Pedir Demo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <button class="burger" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="page-hero-inner">
+        <nav class="page-hero-breadcrumb"><a href="index.html">Inicio</a><span>›</span><span aria-current="page">Nosotros</span></nav>
+        <div class="section-label light">Nuestra historia</div>
+        <h1>20 años haciendo<br/>que los sistemas funcionen</h1>
+        <p>Nacimos construyendo software de gestión para el mercado argentino. Hoy también le sumamos inteligencia artificial a los sistemas que ya existen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SPLIT -->
+  <section style="padding: var(--section-py) 0; background: white;">
+    <div class="container">
+      <div class="about-split">
+        <div class="gsap-fade-up">
+          <div class="section-label">Quiénes somos</div>
+          <h2 class="section-title">El puente entre<br/>lo que funciona<br/>y lo que viene</h2>
+          <p style="font-size:16px; color:var(--ink-muted); line-height:1.7; margin-bottom:20px;">
+            Desde 2004, Atika Software desarrolla y mantiene sistemas de gestión para empresas argentinas. Conocemos cada quirk del mercado local: los formatos AFIP, las integraciones con Mercado Libre y Mercado Pago, las particularidades de cada sector.
+          </p>
+          <p style="font-size:16px; color:var(--ink-muted); line-height:1.7; margin-bottom:28px;">
+            Ahora incorporamos inteligencia artificial — no para reemplazar lo que funciona, sino para potenciarlo. Nuestro diferencial es que podemos implementar OCR + Vision IA directamente sobre los sistemas legacy que ya tenés, sin migraciones costosas ni disrupciones operativas.
+          </p>
+          <p style="font-size:15px; font-weight:600; color:var(--navy); font-style:italic;">
+            "Una aplicación es una solución sólo cuando logra mejorar la calidad del trabajo."
+          </p>
+        </div>
+        <div class="about-split-visual gsap-scale-in">
+          <!-- PLACEHOLDER: foto del equipo o sede, ~560×420px -->
+          <div class="team-placeholder">
+            <div class="team-avatars">
+              <div class="team-avatar">A</div>
+              <div class="team-avatar">T</div>
+              <div class="team-avatar">S</div>
+            </div>
+            <p style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:8px;">[ Foto del equipo aquí ]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section style="padding: var(--section-py) 0; background: var(--off-white);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label">Nuestros valores</div>
+        <h2 class="section-title gsap-fade-up">Lo que nos guía</h2>
+      </div>
+      <div class="values-grid" data-stagger-parent>
+        <div class="value-card" data-stagger-child>
+          <div class="value-icon" style="background:rgba(37,99,235,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="value-title">Respeto por lo que funciona</div>
+          <p class="value-desc">No reemplazamos sistemas sin razón. Evaluamos cada situación y sumamos valor sobre lo existente cuando tiene sentido.</p>
+        </div>
+        <div class="value-card" data-stagger-child>
+          <div class="value-icon" style="background:rgba(245,158,11,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="value-title">Implementación rápida</div>
+          <p class="value-desc">Sabemos que el tiempo es dinero. Nuestras implementaciones se miden en días, no en meses. Soporte local en castellano.</p>
+        </div>
+        <div class="value-card" data-stagger-child>
+          <div class="value-icon" style="background:rgba(74,222,128,0.08);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="value-title">Compromiso con el cliente</div>
+          <p class="value-desc">Más de 20 años mantenemos relaciones de largo plazo con nuestros clientes. Su éxito operativo es nuestra métrica.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section style="padding: var(--section-py) 0; background: white;">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:flex-start;" class="gsap-fade-up">
+        <div>
+          <div class="section-label">Historia</div>
+          <h2 class="section-title" style="margin-bottom:40px;">Hitos que<br/>nos formaron</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2004</div>
+              <div class="timeline-title">Fundación de Atika Software</div>
+              <p class="timeline-desc">Inicio de operaciones como empresa de desarrollo de software de gestión para el mercado argentino.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--gold);"></div>
+              <div class="timeline-year">2008–2012</div>
+              <div class="timeline-title">Crecimiento del portfolio</div>
+              <p class="timeline-desc">Desarrollo de COMAR ERP, AIEL OLAP y SIGA GIUDIT. Primeros clientes en sector judicial y manufactura.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2015–2018</div>
+              <div class="timeline-title">Expansión a mobile e integraciones</div>
+              <p class="timeline-desc">Lanzamiento de Android Colector y expansión a integraciones con Mercado Libre, Mercado Pago y AFIP Web Services.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:var(--gold);"></div>
+              <div class="timeline-year">2022–2024</div>
+              <div class="timeline-title">Primeros proyectos de IA</div>
+              <p class="timeline-desc">Incorporación de capacidades de Computer Vision y OCR para automatización de documentos en sistemas existentes.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background:#4ADE80;"></div>
+              <div class="timeline-year">2025–hoy</div>
+              <div class="timeline-title">OCR + Vision IA como servicio</div>
+              <p class="timeline-desc">Lanzamiento del servicio de automatización de documentos financieros: facturas, remitos, cheques y comprobantes integrados directamente a sistemas legacy.</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-label">Números</div>
+          <h2 class="section-title" style="margin-bottom:40px;">En cifras</h2>
+          <div style="display:grid; gap:20px;">
+            <div style="background:var(--off-white); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:flex; gap:20px; align-items:center;">
+              <div style="font-family:var(--font-head); font-size:44px; font-weight:800; color:var(--blue); line-height:1;">20+</div>
+              <div><div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px;">Años en el mercado</div><div style="font-size:13px; color:var(--ink-muted);">Operando desde 2004, construyendo relaciones de largo plazo</div></div>
+            </div>
+            <div style="background:var(--off-white); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:flex; gap:20px; align-items:center;">
+              <div style="font-family:var(--font-head); font-size:44px; font-weight:800; color:var(--gold); line-height:1;">22+</div>
+              <div><div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px;">Empresas clientes</div><div style="font-size:13px; color:var(--ink-muted);">Sectores: manufactura, judicial, salud, comercio, gobierno</div></div>
+            </div>
+            <div style="background:var(--off-white); border:1px solid var(--border); border-radius:var(--radius); padding:24px; display:flex; gap:20px; align-items:center;">
+              <div style="font-family:var(--font-head); font-size:44px; font-weight:800; color:var(--navy); line-height:1;">14</div>
+              <div><div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px;">Productos de software</div><div style="font-size:13px; color:var(--ink-muted);">ERP, BI, mobile, documentos, control de acceso y más</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div class="section-label light">Trabajemos juntos</div>
+        <h2 class="gsap-fade-up">¿Querés que tu<br/>empresa sea la <em>próxima</em>?</h2>
+        <p class="gsap-fade-up">Contanos qué sistema usás y qué necesitás mejorar. Te proponemos la solución más eficiente.</p>
+        <div class="cta-actions gsap-fade-up">
+          <a href="contacto.html" class="btn btn-gold">Contactar al equipo <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="https://wa.me/5491163001050" target="_blank" rel="noopener" class="btn btn-ghost">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><div class="footer-logo"><div class="navbar-logo-mark">A</div><span class="navbar-logo-text">Atika<span>Soft</span></span></div><p class="footer-brand-desc">Integramos sistemas legacy con inteligencia artificial. Más de 20 años en Argentina.</p></div>
+        <div><div class="footer-col-title">Servicios</div><ul class="footer-links"><li><a href="servicios-ia.html" class="footer-link">OCR + Vision IA</a></li><li><a href="servicios-ia.html" class="footer-link">Integración Legacy</a></li></ul></div>
+        <div><div class="footer-col-title">Empresa</div><ul class="footer-links"><li><a href="nosotros.html" class="footer-link">Nosotros</a></li><li><a href="productos.html" class="footer-link">Productos</a></li><li><a href="casos.html" class="footer-link">Casos</a></li><li><a href="contacto.html" class="footer-link">Contacto</a></li></ul></div>
+        <div><div class="footer-col-title">Contacto</div><div class="footer-contact-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>info@atikasoft.com.ar</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© 2004–<span data-year></span> Atika Software.</span></div>
+    </div>
+  </footer>
+
+  <div class="wa-float">
+    <div class="wa-tooltip">Hablar con el equipo</div>
+    <a href="https://wa.me/5491163001050" target="_blank" rel="noopener" class="wa-btn" aria-label="WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
