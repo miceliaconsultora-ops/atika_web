@@ -194,6 +194,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── HERO VIDEO — loop con pausa en último frame ──
+  const heroVideo = document.getElementById('heroVideo');
+  if (heroVideo) {
+    heroVideo.play();
+    heroVideo.addEventListener('ended', () => {
+      setTimeout(() => {
+        heroVideo.currentTime = 0;
+        heroVideo.play();
+      }, 3000);
+    });
+  }
+
   // ── SMOOTH ANCHOR SCROLL ──
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {

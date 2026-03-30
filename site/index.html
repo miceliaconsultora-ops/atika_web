@@ -127,63 +127,12 @@
           </div>
         </div>
 
-        <!-- Hero Visual — Document OCR Animation -->
+        <!-- Hero Visual — Video -->
         <div class="hero-visual" aria-hidden="true">
-          <div class="hero-doc-anim">
-            <!-- Document card -->
-            <div class="doc-card">
-              <div class="doc-header">
-                <div class="doc-title">Factura A — 0001-00012345</div>
-                <div class="doc-badge">OCR</div>
-              </div>
-              <div class="doc-lines">
-                <div class="doc-row">
-                  <span class="doc-label">CUIT</span>
-                  <div class="doc-value extracted"></div>
-                </div>
-                <div class="doc-row">
-                  <span class="doc-label">Monto</span>
-                  <div class="doc-value extracted gold-extracted" style="animation-delay:0.4s"></div>
-                </div>
-                <div class="doc-row">
-                  <span class="doc-label">Fecha</span>
-                  <div class="doc-value extracted" style="animation-delay:0.8s"></div>
-                </div>
-                <div class="doc-row">
-                  <span class="doc-label">CAE</span>
-                  <div class="doc-value extracted" style="animation-delay:1.2s"></div>
-                </div>
-                <div class="doc-row">
-                  <span class="doc-label">Concepto</span>
-                  <div class="doc-value"></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Arrow -->
-            <div class="doc-arrow" aria-label="Procesado hacia base de datos">
-              <div class="doc-arrow-line"></div>
-            </div>
-
-            <!-- DB card -->
-            <div class="db-card">
-              <div class="db-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                </svg>
-              </div>
-              <div class="db-text">
-                <div class="db-text-top">Sistema legacy</div>
-                <div class="db-text-bottom">Base de datos actualizada</div>
-              </div>
-              <div class="db-status">Sincronizado</div>
-            </div>
-
-            <!-- 3D SCROLL ASSET HERE -->
-            <!-- Reemplazar este componente con asset de video/3D generado -->
-            <!-- Dimensiones recomendadas: 480×400px, formato .webm o .mp4 -->
+          <div class="hero-video-wrap">
+            <video class="hero-video" id="heroVideo" muted playsinline preload="auto">
+              <source src="assets/videohero.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
 
