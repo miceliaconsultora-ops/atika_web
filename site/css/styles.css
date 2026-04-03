@@ -217,30 +217,15 @@ h1, h2, h3, h4, h5 {
   flex-shrink: 0;
 }
 
-.navbar-logo-mark {
-  width: 36px;
-  height: 36px;
-  background: var(--blue);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 16px;
-  color: white;
-  letter-spacing: -0.02em;
+.navbar-logo-img {
+  height: 34px;
+  width: auto;
+  display: block;
 }
 
-.navbar-logo-text {
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 18px;
-  color: white;
-  letter-spacing: -0.03em;
+.navbar-logo-img--footer {
+  height: 28px;
 }
-
-.navbar-logo-text span { color: var(--gold); }
 
 .navbar-nav {
   display: flex;
@@ -672,6 +657,11 @@ h1, h2, h3, h4, h5 {
 
 .trust-logo-img:hover img {
   opacity: 0.85;
+}
+
+.trust-logo-img--lg img {
+  height: 52px;
+  max-width: 150px;
 }
 
 /* Text pill fallback */
