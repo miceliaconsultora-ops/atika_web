@@ -721,6 +721,66 @@ h1, h2, h3, h4, h5 {
   color: rgba(255,255,255,0.45);
 }
 
+/* ── CREDENTIAL STRIP ── */
+.credential-strip {
+  background: linear-gradient(90deg, var(--blue) 0%, #1e40af 100%);
+  padding: 20px 0;
+}
+
+.credential-strip-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.credential-strip-icon {
+  color: rgba(255,255,255,0.7);
+  flex-shrink: 0;
+}
+
+.credential-strip-text {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
+}
+
+.credential-strip-highlight {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 800;
+  color: #fff;
+  margin-right: 6px;
+}
+
+.credential-strip-country {
+  font-weight: 700;
+  color: #fff;
+}
+
+.credential-strip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.credential-strip-link:hover { color: #fff; }
+
+@media (max-width: 640px) {
+  .credential-strip-inner { gap: 14px; }
+  .credential-strip-icon { display: none; }
+  .credential-strip-link { display: none; }
+}
+
 /* ── PROBLEM / SOLUTION ── */
 .problem-section {
   background: var(--navy);

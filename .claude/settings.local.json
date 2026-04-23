@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\image-generator\\\\assets\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\afip-invoice-processor\\\\assets\")",
+      "Bash(mkdir -p \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\3d-animation-creator\\\\references\")",
+      "Bash(cp \"C:\\\\Antigravity\\\\Atika Software\\\\Image-Generator\\\\SKILL.md\" \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\image-generator\\\\SKILL.md\")",
+      "Bash(cp \"C:\\\\Antigravity\\\\Atika Software\\\\Image-Generator\\\\assets\\\\prompt-page-template.html\" \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\image-generator\\\\assets\\\\prompt-page-template.html\")",
+      "Bash(cp \"C:\\\\Antigravity\\\\Atika Software\\\\3D-Animation-Creator\\\\SKILL.md\" \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\3d-animation-creator\\\\SKILL.md\")",
+      "Bash(cp \"C:\\\\Antigravity\\\\Atika Software\\\\3D-Animation-Creator\\\\references\\\\sections-guide.md\" \"C:\\\\Users\\\\bogac\\\\.claude\\\\skills\\\\3d-animation-creator\\\\references\\\\sections-guide.md\")",
+      "Bash(start:*)",
+      "Bash(pdftotext -f 1 -l 5 \"C:/Antigravity/Atika Software/Desarrollos IA/ARPac/Presupuesto ARPac-Atika-by-MicelIA-Lampe.pdf\" -)",
+      "Bash(python:*)",
+      "Bash(pkill -f \"http.server 8080\")",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(python3:*)",
+      "Bash(C:/Users/bogac/AppData/Local/Programs/Python/Python311/python.exe:*)",
+      "Bash(curl -sk https://repositorio.segemar.gov.ar/themes/Mirage2/images/segemar_dspace_logo.png -o '/c/Antigravity/Atika Software/site/assets/logos/segemar.png')",
+      "Bash(curl -sk https://www.argentina.gob.ar/sites/default/files/styles/isotipo/public/imagenEncabezado/logo-inti-v2.png -o '/c/Antigravity/Atika Software/site/assets/logos/inti.png')",
+      "Bash(curl -sk https://www.arescalada.com.ar/images_simple/logo_arescalada.png -o '/c/Antigravity/Atika Software/site/assets/logos/ar-escalada.png')"
+    ]
+  }
+}
